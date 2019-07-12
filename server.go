@@ -173,7 +173,7 @@ func (srv *Server) handleSignals() {
 			if pid, err := srv.startNewProcess(); err != nil {
 				srv.errorLog("start new process failed: %v, continue serving.", err)
 			} else {
-				srv.infoLog("start new process successed, the new pid is %d.", pid)
+				srv.infoLog("start new process successful, the new pid is %d.", pid)
 				srv.shutdownHTTPServer()
 			}
 		default:

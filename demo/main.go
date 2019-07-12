@@ -20,7 +20,7 @@ func main() {
 			<-time.After(time.Duration(t) * time.Millisecond)
 		}
 		writer.WriteHeader(http.StatusOK)
-		_, _ = fmt.Fprintf(writer, "pid: %d\n", os.Getpid())
+		_, _ = fmt.Fprintf(writer, "kill -SIGUSR2 %d\n", os.Getpid())
 	})
 
 	server := gracehttp.NewServer(":1991", mux, 60*time.Second, 60*time.Second)
